@@ -15,7 +15,7 @@ export const ItemCard: React.FC<Props> = ({ item }) => {
       <div className="border-t border-b mb-10">
         <TagGrid>
           {item.tags?.map((tag) => (
-            <Tag tag={tag} />
+            <Tag key={tag} tag={tag} />
           ))}
         </TagGrid>
       </div>
