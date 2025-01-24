@@ -1,24 +1,26 @@
-import { useEffect, useState } from 'react';
-import { ProductItem } from './types';
-import { fetchItems } from './features/items/itemsApi';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from './hooks/useAppDispatch';
+import { getItems } from './features/items/itemsSlice';
+import { RootState } from './store/store';
 import Layout from './Layout';
 
 function App() {
-  const [item, setItem] = useState<ProductItem | null>(null);
+  const dispatch = useAppDispatch();
+  const { items, status } = useSelector((state: RootState) => state.items);
+  const currentItem = items[0] || null;
 
   useEffect(() => {
-    const getData = async () => {
-      const items: ProductItem[] | null = await fetchItems();
-      if (items) {
-        setItem(items[0]);
-      }
-    };
-    getData();
-  }, []);
+    dispatch(getItems());
+  }, [dispatch]);
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
-      <Layout item={item} />
+      <Layout item={currentItem} />
     </>
   );
 }
