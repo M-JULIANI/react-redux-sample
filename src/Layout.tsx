@@ -1,7 +1,7 @@
-import { ItemCard } from './components/common/ItemCard';
+import { ItemCard } from './components/feature/ItemCard';
 import Nav from './components/common/Nav';
-import SalesChart from './components/common/SalesChart';
-import SalesTable from './components/common/SalesTable';
+import SalesChart from './components/feature/SalesChart';
+import SalesTable from './components/feature/SalesTable';
 import { ProductItem } from './types';
 
 type Props = {
