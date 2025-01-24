@@ -1,4 +1,4 @@
-import stacklineLogo from '../../assets/stackline_logo.svg';
+import stacklineLogo from './stackline_logo.svg';
 
 type NavProps = {
   className?: string;
