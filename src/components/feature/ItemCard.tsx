@@ -1,5 +1,5 @@
 import { ProductItem } from '../../types';
-import { Tag } from './Tag';
+import { Tag } from '../common/Tag';
 type Props = {
   item: ProductItem | null;
 };
